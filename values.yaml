@@ -1,0 +1,25 @@
+---
+
+# Name of the jboss application
+name: example-jboss-application
+port: 8080
+
+pipeline:
+  imageName: example-jboss-application
+  branch: main
+  gitUrl: https://github.com/jland-redhat/jboss-kitchensink.git
+
+postgresql:
+  postgresqlUsername: user
+  postgresqlPassword: password
+  postgresqlDatabase: test
+  volumePermissions:
+    securityContext: 
+      runAsUser: auto
+  securityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: false
+  shmVolume:
+    chmod:
+      enabled: false

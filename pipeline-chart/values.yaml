@@ -1,0 +1,5 @@
+---
+gitUrl: https://github.com/jland-redhat/jboss-helloworld.git
+imageName: REQUIRED
+imageUrl: image-registry.openshift-image-registry.svc:5000/{{ $.Release.Namespace }}/{{ $.Values.imageName }}
+branch: master
