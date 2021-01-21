@@ -7,7 +7,7 @@ port: 8080
 pipeline:
   imageName: example-jboss-application
   branch: main
-  gitUrl: https://github.com/jland-redhat/jboss-kitchensink.git
+  gitUrl: https://github.com/jland-redhat/jboss-helloworld-secured.git
 
 postgresql:
   postgresqlUsername: user

@@ -13,3 +13,5 @@ data:
   DS1_DATABASE: test
   DS1_USERNAME: user
   DS1_PASSWORD: password
+  DATAGRID_USERNAME: developer
+  DATAGRID_PASSWORD: JvSkopF7qbriuJH5
