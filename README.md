@@ -24,3 +24,7 @@ helm install <RELEASE_NAME> .
 ```
 helm upgrade <TEMPLATE_NAME> .
 ```
+
+## Branch Notes
+
+Intended to be used a more advance argo release example.
