@@ -26,6 +26,10 @@ spec:
       description: The base URL of a mirror used for retrieving artifacts
       name: MAVEN_MIRROR_URL
       type: string
+    - default: 'latest'
+      description: Image Tag
+      name: TAG
+      type: string
   resources:
     inputs:
       - name: source
@@ -102,9 +106,9 @@ spec:
     - command:
         - buildah
         - push
-        - '--tls-verify=$(params.TLSVERIFY)'
-        - $(resources.outputs.image.url)
-        - 'docker://$(resources.outputs.image.url)'
+        - '--authfile'
+        - /etc/secret-volume/.dockerconfigjson
+        - $(resources.outputs.image.url):$(params.TAG)
       image: registry.redhat.io/rhel8/buildah
       name: push
       resources: {}
@@ -113,6 +117,9 @@ spec:
       volumeMounts:
         - mountPath: /var/lib/containers
           name: varlibcontainers
+        - name: quay-auth-secret
+          mountPath: /etc/secret-volume
+          readOnly: true
   volumes:
     - emptyDir: {}
       name: varlibcontainers
@@ -120,3 +127,6 @@ spec:
       name: gen-source
     - emptyDir: {}
       name: envparams
+    - name: quay-auth-secret
+      configMap:
+        name: dockerconfigjson

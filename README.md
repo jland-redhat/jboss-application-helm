@@ -27,4 +27,15 @@ helm upgrade <TEMPLATE_NAME> .
 
 ## Branch Notes
 
-Intended to be used a more advance argo release example.
+Intended to be used a more basic argo release example.
+
+## ** REQUIRED ** Create docker config
+
+Create docker config secret running the following:
+
+```
+oc create secret docker-registry dockerconfigjson \
+  --docker-username=jland \
+  --docker-password=pass113 \
+  --docker-email=jland@acme.com
+```

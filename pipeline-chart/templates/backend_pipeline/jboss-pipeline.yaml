@@ -18,6 +18,8 @@ spec:
           value: 'false'
         - name: MAVEN_CLEAR_REPO
           value: 'false'
+        - name: TAG
+          value: '{{ .Values.imageTag }}'
       resources:
         inputs:
           - name: source

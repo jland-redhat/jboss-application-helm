@@ -1,5 +1,8 @@
 ---
 gitUrl: https://github.com/jland-redhat/jboss-helloworld.git
 imageName: REQUIRED
-imageUrl: image-registry.openshift-image-registry.svc:5000/{{ $.Release.Namespace }}/{{ $.Values.imageName }}
+imageTag: 1.0
+imageUrl: quay.io/{{ $.Values.quay.user }}/{{ $.Values.imageName }}
 branch: master
+quay:
+  user: jland

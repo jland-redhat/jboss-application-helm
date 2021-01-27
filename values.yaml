@@ -8,6 +8,8 @@ pipeline:
   imageName: example-jboss-application
   branch: main
   gitUrl: https://github.com/jland-redhat/jboss-kitchensink.git
+  quay:
+    username: jland
 
 postgresql:
   postgresqlUsername: user
