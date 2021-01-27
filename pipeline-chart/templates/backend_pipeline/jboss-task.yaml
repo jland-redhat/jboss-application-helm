@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: s2i-jboss-custom
+  name: s2i-jboss-push-to-quay
 spec:
   params:
     - default: .
@@ -107,7 +107,7 @@ spec:
         - buildah
         - push
         - '--authfile'
-        - /etc/secret-volume/.dockerconfigjson
+        - /etc/secret-volume/config.json
         - $(resources.outputs.image.url):$(params.TAG)
       image: registry.redhat.io/rhel8/buildah
       name: push
@@ -128,5 +128,8 @@ spec:
     - emptyDir: {}
       name: envparams
     - name: quay-auth-secret
-      configMap:
-        name: dockerconfigjson
+      secret:
+        secretName: dockerconfigjson
+        items:
+          - key: .dockerconfigjson
+            path: config.json

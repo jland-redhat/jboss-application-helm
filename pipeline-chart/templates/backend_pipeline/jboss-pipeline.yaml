@@ -29,4 +29,4 @@ spec:
             resource: jboss-image
       taskRef:
         kind: Task
-        name: s2i-jboss-custom
+        name: s2i-jboss-push-to-quay

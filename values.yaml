@@ -4,24 +4,7 @@
 name: example-jboss-application
 port: 8080
 
-pipeline:
-  imageName: example-jboss-application
-  branch: main
-  gitUrl: https://github.com/jland-redhat/jboss-kitchensink.git
-  quay:
-    username: jland
 
-postgresql:
-  postgresqlUsername: user
-  postgresqlPassword: password
-  postgresqlDatabase: test
-  volumePermissions:
-    securityContext: 
-      runAsUser: auto
-  securityContext:
-    enabled: false
-  containerSecurityContext:
-    enabled: false
-  shmVolume:
-    chmod:
-      enabled: false
+image:
+  url: docker pull quay.io/jland/poc
+  tag: 1.0

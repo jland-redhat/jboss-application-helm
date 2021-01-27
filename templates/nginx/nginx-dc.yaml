@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: {{ $.Values.name }}
-        image: {{ $.Release.Namespace }}/{{ $.Values.name }}
+        image: {{ $.Values.image.url }}:{{ $.Values.image.tag }}
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8080

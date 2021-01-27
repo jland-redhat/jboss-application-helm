@@ -1,6 +1,6 @@
 ---
 gitUrl: https://github.com/jland-redhat/jboss-helloworld.git
-imageName: REQUIRED
+imageName: poc
 imageTag: 1.0
 imageUrl: quay.io/{{ $.Values.quay.user }}/{{ $.Values.imageName }}
 branch: master
