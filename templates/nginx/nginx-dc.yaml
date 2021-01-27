@@ -35,12 +35,6 @@ spec:
         ports:
           - containerPort: 8080
             protocol: TCP
-          - containerPort: 8443
-            protocol: TCP
-          - containerPort: 8778
-            protocol: TCP
-          - containerPort: 9990
-            protocol: TCP
         envFrom:
           - configMapRef:
               name: {{ $.Values.name }}
@@ -52,14 +46,3 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-  triggers:
-  - type: ConfigChange
-  - type: ImageChange
-    imageChangeParams:
-      automatic: true
-      containerNames:
-      - {{ $.Values.name }}
-      from:
-        kind: ImageStreamTag
-        namespace: {{ $.Release.Namespace }}
-        name: {{ $.Values.name }}:{{ $.Values.tag | default "latest" }}
