@@ -46,9 +46,9 @@ spec:
               name: {{ $.Values.name }}
         resources: 
           limits:
-              memory: 2G
-            requests:
-              memory: 1G
+            memory: 2G
+          requests:
+            memory: 1G
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
